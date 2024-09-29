@@ -18,8 +18,9 @@ def bar_plot(lista_userId,lista_completed):
     fig.suptitle('Títulos completados por usuario', fontsize=16)
     ax = fig.add_subplot()
 
-    ax.bar(lista_userId, lista_completed, label='Cantidad de títulos')
+    ax.bar(lista_userId, lista_completed, label='Cantidad de títulos', color='purple')
     ax.set_facecolor('whitesmoke')
+    ax.set_xlabel('USUARIOS', c='purple')
     ax.legend()
     plt.show()
 
@@ -72,7 +73,7 @@ if __name__ == '__main__':
                 suma = suma + 1
         lista_completed.append(suma)
         
-    #print(lista_completed)        
+    print(lista_completed)        
 
     bar_plot(lista_userId,lista_completed)
 
