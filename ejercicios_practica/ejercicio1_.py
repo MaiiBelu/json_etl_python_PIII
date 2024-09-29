@@ -32,25 +32,35 @@ def serializar():
 
     # Observe el archivo y verifique que se almaceno lo deseado
 
-    mipersona = {
-                  "nombre": "Jesus",
-                  "apellido": "Gonzalez",
-                  "DNI": "26701556",
+    mi_informacion = {
+                  "nombre": "Mayra",
+                  "apellido": "Cruz",
+                  "DNI": "37513845",
                   "elementos_vestir": [
                       {
-                       "prenda": "chaleco", 
-                       "cantidad": 4
+                       "prenda": "sweater", 
+                       "cantidad": 2
                       },
                       {
-                       "prenda": "zapato",
-                       "cantidad": 12
+                       "prenda": "zapatos",
+                       "cantidad": 3
+                      },
+                      {
+                        "prenda": "camisetas",
+                        "cantidad": 5
+                      },
+                      {
+                        "prenda": "zapatillas",
+                        "cantidad": 3
                       }
                       ]
                    }
 
-    with open('mi_persona_json.json', 'w') as jsonfile:
-        data = [mipersona]
-        json.dump(data, jsonfile, indent=4)
+    with open('mi_informacion.json', 'w') as mi_archivo:
+        data = [mi_informacion]
+        json.dump(data, mi_archivo, indent=4)
+      
+    print(mi_informacion)
 
 def deserializar():
     print("Funcion que lee un archivo JSON")
@@ -64,33 +74,37 @@ def deserializar():
     # Recuerde utilizar indent=4 para poder observar mejor el resultado
     # en pantalla y comparelo contra el JSON que generó en la función anterior
 
-    mipersona = {
-                  "nombre": "Jesus",
-                  "apellido": "Gonzalez",
-                  "DNI": "26701556",
+    mi_informacion = {
+                  "nombre": "Mayra",
+                  "apellido": "Cruz",
+                  "DNI": "37513845",
                   "elementos_vestir": [
                       {
-                       "prenda": "chaleco", 
-                       "cantidad": 4
+                       "prenda": "campera", 
+                       "cantidad": 2
                       },
                       {
-                       "prenda": "zapato",
-                       "cantidad": 12
-                      }
+                       "prenda": "buzo",
+                       "cantidad": 5
+                      },
+                      {
+                        "prenda": "remera",
+                        "cantidad": 10
+                      },
                       ]
                    }
 
-    with open('mi_persona_json.json', 'r') as jsonfile:
-        current_data = json.load(jsonfile)
-        current_data.append(mipersona)
+    with open('mi_informacion.json', 'r') as mi_archivo:
+        current_data = json.load(mi_archivo)
+        current_data.append(mi_informacion)
 
-    with open('mi_persona_json.json', 'w') as jsonfile:
-        json.dump(current_data, jsonfile, indent=4)
+    with open('mi_informacion.json', 'w') as mi_archivo:
+        json.dump(current_data, mi_archivo, indent=4)
 
-    with open('mi_persona_json.json', 'r') as jsonfile:
-        json_data = json.load(jsonfile)
+    with open('mi_informacion.json', 'r') as mi_archivo:
+        json_data = json.load(mi_archivo)
 
-    print('Mostrar el contenido del archivo mi_persona_json')
+    print('Mostrar el contenido del archivo mi_informacion')
     print(json.dumps(json_data, indent=4))
 
 
@@ -100,4 +114,4 @@ if __name__ == '__main__':
     serializar()
     deserializar()
 
-    print("terminamos")
+    print("Ejercicio finalizado")
